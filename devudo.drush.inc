@@ -43,14 +43,20 @@ function devudo_drush_create_server(){
   $compute = $connection->Compute('cloudServersOpenStack', 'DFW');
 
   // first, find the image
-  $ilist = $compute->ImageList();
-  $found = FALSE;
-  $distro = "org.openstack__1__os_distro";
-  $version = "org.openstack__1__os_version";
-  while (!$found && $image = $ilist->Next()) {
+  $list = $compute->ImageList();
+  while ($image = $list->Next()) {
     $options[$image->name] = $image->name;
   }
+  asort($options);
+  drush_choice($options, 'Choose an OS');
 
+  
+  // next, find the flavor
+  $options = array();
+  $list = $compute->FlavorList();
+  while ($flavor = $list->Next()) {
+    $options[$flavor->id] = $flavor->name;
+  }
   drush_choice($options, 'Choose a flavor');
 }
 
