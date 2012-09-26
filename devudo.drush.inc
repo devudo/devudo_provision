@@ -26,6 +26,7 @@ function devudo_drush_create_server(){
   require_once('opencloud/rackspace.inc');
   require_once('opencloud/compute.inc');
   
+  // @TODO: make these drush options
   // RACKSPACE
   define('AUTHURL', 'https://identity.api.rackspacecloud.com/v2.0/');
   define('USERNAME', 'careernerd');
@@ -47,8 +48,10 @@ function devudo_drush_create_server(){
   $distro = "org.openstack__1__os_distro";
   $version = "org.openstack__1__os_version";
   while (!$found && $image = $ilist->Next()) {
-   printf("Checking image %s...", $image->name);
+    $options[$image->name] = $image->name;
   }
+
+  drush_choice($options, 'Choose a flavor');
 }
 
 
