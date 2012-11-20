@@ -7,9 +7,9 @@ function devudo_drush_command() {
     'examples' => array(
     ), 
     'arguments' => array(
+      'server-name' => dt('The name of the new server.'),
     ),
    'bootstrap' => DRUSH_BOOTSTRAP_DRUSH, // No bootstrap at all.
-
   );
   return $items;
 }
@@ -18,13 +18,14 @@ function devudo_drush_command() {
  * Attempt to create server.
  * Stolen from https://github.com/rackspace/php-opencloud/blob/master/samples/compute/create.php
  */
-function devudo_drush_create_server(){
+function devudo_drush_create_server($name = 'My New Server'){
   drush_log('[DEVUDO] Hello, devudo-create-server.');
 
-  
+  ini_set('include_path', '/usr/share/php-opencloud/lib:'.ini_get('include_path'));
 
-  require_once('opencloud/rackspace.inc');
-  require_once('opencloud/compute.inc');
+  require_once('rackspace.inc');
+  require_once('compute.inc');
+  require_once('network.inc');
   
   // @TODO: make these drush options
   // RACKSPACE
@@ -42,23 +43,61 @@ function devudo_drush_create_server(){
   // now, connect to the compute service
   $compute = $connection->Compute('cloudServersOpenStack', 'DFW');
 
-  // first, find the image
+  $options = array();
+
+  // @TODO: options
+  //  os_distro, os_version
+
+  // first, find the image list.
   $list = $compute->ImageList();
   while ($image = $list->Next()) {
-    $options[$image->name] = $image->name;
+    $images[$image->id] = $image;
+    $options['images'][$image->id] = $image->name;
   }
-  asort($options);
-  drush_choice($options, 'Choose an OS');
-
-  
+  asort($options['images']);
+  $image_id = drush_choice($options['images'], 'Choose an OS');
+  $chosen_image = $images[$image_id];
+  drush_print_r($chosen_image);
   // next, find the flavor
-  $options = array();
   $list = $compute->FlavorList();
   while ($flavor = $list->Next()) {
-    $options[$flavor->id] = $flavor->name;
+    $flavors[$flavor->id] = $flavor;
+    $options['flavors'][$flavor->id] = $flavor->name;
   }
-  drush_choice($options, 'Choose a flavor');
+  $flavor_id = drush_choice($options['flavors'], 'Choose a flavor');
+  $chosen_flavor = $flavors[$flavor_id];
+
+  // Request Server
+  $server = $compute->Server();
+
+  // @TODO: ASK FOR NAME if not present.
+  $server->name = $name;
+  $server->Create(array(
+		'image' => $chosen_image,
+		'flavor' => $chosen_flavor,
+  ));
+  
+  drush_log("Server Requested, Now waiting on Server: " . $server->id, 'ok');
+  
+  //@TODO: Active doesn't mean ready!
+  $server->WaitFor("ACTIVE", 1200, 'devudo_drush_create_server_complete');
+ 
 }
 
-
-
+function devudo_drush_create_server_complete($server) {
+  if ($server->status == 'ACTIVE'){
+    drush_log("Server Build Complete!");
+    drush_log("Your server is now available at ". $server->ip());
+    drush_log("Your root password is ". $server->adminPass);
+  } else {
+    drush_log('Server is being built...');
+    
+    if ($server->adminPass){
+      drush_log("Your root password is ". $server->adminPass);    
+    }
+    
+    if ($server->ip()){
+      drush_log("Your IP is ". $server->ip());    
+    }
+  }
+}
