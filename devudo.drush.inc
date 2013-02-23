@@ -48,35 +48,56 @@ function devudo_drush_create_server($name = 'My New Server'){
   // @TODO: options
   //  os_distro, os_version
 
-  // first, find the image list.
+  // STEP 1: Choose Image
   $list = $compute->ImageList();
   while ($image = $list->Next()) {
     $images[$image->id] = $image;
     $options['images'][$image->id] = $image->name;
   }
-  asort($options['images']);
-  $image_id = drush_choice($options['images'], 'Choose an OS');
+  
+  // Look for drush option
+  $image_id = drush_get_option('image_id');
+
+  // If no option set, ask.
+  if (empty($image_id)){
+    asort($options['images']);
+    $image_id = drush_choice($options['images'], 'Choose an OS');
+  }
+  
+  // Save for later.
   $chosen_image = $images[$image_id];
-  drush_print_r($chosen_image);
-  // next, find the flavor
+  print_r($chosen_image);
+
+  // STEP 2: Choose Flavor
   $list = $compute->FlavorList();
   while ($flavor = $list->Next()) {
     $flavors[$flavor->id] = $flavor;
     $options['flavors'][$flavor->id] = $flavor->name;
   }
-  $flavor_id = drush_choice($options['flavors'], 'Choose a flavor');
+  
+  // Look for drush option
+  $flavor_id = drush_get_option('flavor_id');
+
+  // If no option set, ask.
+  if (empty($flavor_id)){
+    asort($options['flavors']);
+    $flavor_id = drush_choice($options['flavors'], 'Choose an Flavor');
+  }
+
+  // Save for later
   $chosen_flavor = $flavors[$flavor_id];
 
-  // Request Server
+  // STEP 3: Request Server
   $server = $compute->Server();
 
-  // @TODO: ASK FOR NAME if not present.
+  // Set server properties
   $server->name = $name;
   $server->Create(array(
 		'image' => $chosen_image,
 		'flavor' => $chosen_flavor,
   ));
   
+  // Let the user know we are waiting on it.
   drush_log("Server Requested, Now waiting on Server: " . $server->id, 'ok');
   
   //@TODO: Active doesn't mean ready!
