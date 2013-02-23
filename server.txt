@@ -1,0 +1,411 @@
+OpenCloud\Compute\Server Object
+(
+    [status] => ACTIVE
+    [updated] => 2012-10-16T18:30:52Z
+    [hostId] => 83cb5c15aedb2a69faea4b1bd2609a098aaec72f55b3b119263510cd
+    [addresses] => stdClass Object
+        (
+            [public] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [version] => 4
+                            [addr] => 198.61.212.154
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [version] => 6
+                            [addr] => 2001:4800:780e:0510:bb1d:2f7d:ff04:79d8
+                        )
+
+                )
+
+            [private] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [version] => 4
+                            [addr] => 10.180.34.62
+                        )
+
+                )
+
+        )
+
+    [links] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [href] => https://dfw.servers.api.rackspacecloud.com/v2/660869/servers/222c662d-ad77-478b-af5f-95d87c7091bb
+                    [rel] => self
+                )
+
+            [1] => stdClass Object
+                (
+                    [href] => https://dfw.servers.api.rackspacecloud.com/660869/servers/222c662d-ad77-478b-af5f-95d87c7091bb
+                    [rel] => bookmark
+                )
+
+        )
+
+    [image] => stdClass Object
+        (
+            [id] => 5cebb13a-f783-4f8c-8058-c4182c724ccd
+            [links] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [href] => https://dfw.servers.api.rackspacecloud.com/660869/images/5cebb13a-f783-4f8c-8058-c4182c724ccd
+                            [rel] => bookmark
+                        )
+
+                )
+
+        )
+
+    [flavor] => stdClass Object
+        (
+            [id] => 2
+            [links] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [href] => https://dfw.servers.api.rackspacecloud.com/660869/flavors/2
+                            [rel] => bookmark
+                        )
+
+                )
+
+        )
+
+    [networks] => Array
+        (
+        )
+
+    [id] => 222c662d-ad77-478b-af5f-95d87c7091bb
+    [user_id] => 171060
+    [name] => dv004
+    [created] => 2012-10-16T18:26:47Z
+    [tenant_id] => 660869
+    [accessIPv4] => 198.61.212.154
+    [accessIPv6] => 2001:4800:780e:0510:bb1d:2f7d:ff04:79d8
+    [progress] => 100
+    [adminPass] => vPhQR7vYWF9Q
+    [metadata] => stdClass Object
+        (
+            [sdk] => php-opencloud/1.0 (Rackspace)
+        )
+
+    [personality:OpenCloud\Compute\Server:private] => Array
+        (
+        )
+
+    [imageRef:OpenCloud\Compute\Server:private] => https://dfw.servers.api.rackspacecloud.com/v2/660869/images/5cebb13a-f783-4f8c-8058-c4182c724ccd
+    [flavorRef:OpenCloud\Compute\Server:private] => https://dfw.servers.api.rackspacecloud.com/v2/660869/flavors/2
+    [_service:OpenCloud\PersistentObject:private] => OpenCloud\Compute Object
+        (
+            [_namespaces:OpenCloud\Nova:private] => Array
+                (
+                    [0] => OS-DCF
+                    [1] => OS-EXT-STS
+                    [2] => os-consoles
+                    [3] => os-flavor-rxtx
+                    [4] => os-flavor-swap
+                    [5] => os-networksv2
+                    [6] => os-rescue
+                    [7] => os-used-limits
+                    [8] => os-volumes
+                    [9] => rax-bandwidth
+                )
+
+            [_url:OpenCloud\Nova:private] => https://dfw.servers.api.rackspacecloud.com/v2/660869
+            [conn:OpenCloud\Service:private] => OpenCloud\Rackspace Object
+                (
+                    [useragent] => php-opencloud/1.0 (Rackspace)
+                    [url:protected] => https://identity.api.rackspacecloud.com/v2.0/
+                    [secret:protected] => Array
+                        (
+                            [username] => careernerd
+                            [tenantName] => devudo
+                            [apiKey] => e93596076f1a3bd404d6a8b790b8a96b
+                        )
+
+                    [token:protected] => 1bde1f5f-2291-4bd0-9bef-ca2b6303d9c4
+                    [expiration:protected] => 1350424762
+                    [tenant:protected] => 660869
+                    [ServiceCatalog:protected] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [region] => DFW
+                                                    [tenantId] => MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [publicURL] => https://cdn1.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                )
+
+                                            [1] => stdClass Object
+                                                (
+                                                    [region] => ORD
+                                                    [tenantId] => MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [publicURL] => https://cdn2.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                )
+
+                                        )
+
+                                    [name] => cloudFilesCDN
+                                    [type] => rax:object-cdn
+                                )
+
+                            [1] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [region] => DFW
+                                                    [tenantId] => MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [publicURL] => https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [internalURL] => https://snet-storage101.dfw1.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                )
+
+                                            [1] => stdClass Object
+                                                (
+                                                    [region] => ORD
+                                                    [tenantId] => MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [publicURL] => https://storage101.ord1.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                    [internalURL] => https://snet-storage101.ord1.clouddrive.com/v1/MossoCloudFS_e290ddc6-c23f-433e-ae9b-0211e359e4ee
+                                                )
+
+                                        )
+
+                                    [name] => cloudFiles
+                                    [type] => object-store
+                                )
+
+                            [2] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://servers.api.rackspacecloud.com/v1.0/660869
+                                                    [versionInfo] => https://servers.api.rackspacecloud.com/v1.0
+                                                    [versionList] => https://servers.api.rackspacecloud.com/
+                                                    [versionId] => 1.0
+                                                )
+
+                                        )
+
+                                    [name] => cloudServers
+                                    [type] => compute
+                                )
+
+                            [3] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [region] => DFW
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                            [1] => stdClass Object
+                                                (
+                                                    [region] => ORD
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://ord.loadbalancers.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                        )
+
+                                    [name] => cloudLoadBalancers
+                                    [type] => rax:load-balancer
+                                )
+
+                            [4] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [region] => DFW
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://dfw.servers.api.rackspacecloud.com/v2/660869
+                                                    [versionInfo] => https://dfw.servers.api.rackspacecloud.com/v2
+                                                    [versionList] => https://dfw.servers.api.rackspacecloud.com/
+                                                    [versionId] => 2
+                                                )
+
+                                            [1] => stdClass Object
+                                                (
+                                                    [region] => ORD
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://ord.servers.api.rackspacecloud.com/v2/660869
+                                                    [versionInfo] => https://ord.servers.api.rackspacecloud.com/v2
+                                                    [versionList] => https://ord.servers.api.rackspacecloud.com/
+                                                    [versionId] => 2
+                                                )
+
+                                        )
+
+                                    [name] => cloudServersOpenStack
+                                    [type] => compute
+                                )
+
+                            [5] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://dns.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                        )
+
+                                    [name] => cloudDNS
+                                    [type] => rax:dns
+                                )
+
+                            [6] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [region] => ORD
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://ord.databases.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                            [1] => stdClass Object
+                                                (
+                                                    [region] => DFW
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://dfw.databases.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                        )
+
+                                    [name] => cloudDatabases
+                                    [type] => rax:database
+                                )
+
+                            [7] => stdClass Object
+                                (
+                                    [endpoints] => Array
+                                        (
+                                            [0] => stdClass Object
+                                                (
+                                                    [tenantId] => 660869
+                                                    [publicURL] => https://monitoring.api.rackspacecloud.com/v1.0/660869
+                                                )
+
+                                        )
+
+                                    [name] => cloudMonitoring
+                                    [type] => rax:monitor
+                                )
+
+                        )
+
+                    [defaults:protected] => Array
+                        (
+                            [Compute] => Array
+                                (
+                                    [name] => cloudServersOpenStack
+                                    [region] =>
+                                    [urltype] => publicURL
+                                )
+
+                            [ObjectStore] => Array
+                                (
+                                    [name] => cloudFiles
+                                    [region] =>
+                                    [urltype] => publicURL
+                                )
+
+                            [DbService] => Array
+                                (
+                                    [name] => cloudDatabases
+                                    [region] =>
+                                    [urltype] => publicURL
+                                )
+
+                            [VolumeService] => Array
+                                (
+                                    [name] => cloudBlockStorage
+                                    [region] =>
+                                    [urltype] => publicURL
+                                )
+
+                            [LoadBalancerService] => Array
+                                (
+                                    [name] => cloudLoadBalancers
+                                    [region] =>
+                                    [urltype] => publicURL
+                                )
+
+                        )
+
+                    [connect_timeout:protected] => 5
+                    [http_timeout:protected] => 30
+                    [overlimit_timeout:protected] => 300
+                    [template:OpenCloud\OpenStack:private] => {"auth":{"passwordCredentials":{"username": "%s", "password": "%s"}}}
+                    [_user_write_progress_callback_func:OpenCloud\OpenStack:private] =>
+                    [_user_read_progress_callback_func:OpenCloud\OpenStack:private] =>
+                    [_file_descriptors:OpenCloud\OpenStack:private] => Array
+                        (
+                        )
+
+                    [http_headers:OpenCloud\Base:private] => Array
+                        (
+                        )
+
+                    [_errors:OpenCloud\Base:private] => Array
+                        (
+                        )
+
+                )
+
+            [service_type:OpenCloud\Service:private] => compute
+            [service_name:OpenCloud\Service:private] => cloudServersOpenStack
+            [service_region:OpenCloud\Service:private] => DFW
+            [service_url:OpenCloud\Service:private] => https://dfw.servers.api.rackspacecloud.com/v2/660869
+            [http_headers:OpenCloud\Base:private] => Array
+                (
+                )
+
+            [_errors:OpenCloud\Base:private] => Array
+                (
+                )
+
+        )
+
+    [http_headers:OpenCloud\Base:private] => Array
+        (
+        )
+
+    [_errors:OpenCloud\Base:private] => Array
+        (
+        )
+
+    [OS-DCF:diskConfig] => AUTO
+    [OS-EXT-STS:task_state] =>
+    [OS-EXT-STS:vm_state] => active
+    [rax-bandwidth:bandwidth] => Array
+        (
+        )
+
+    [OS-EXT-STS:power_state] => 1
+)
+
+aegir@devudo:~$
