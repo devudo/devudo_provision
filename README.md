@@ -1,5 +1,4 @@
 DEVUDO provision
 ================
 
-This provides the magic behind devudo, allowing supernatural server side commands
-to be triggered by our own customized front end.
+This was built as research for devudo.  It allows drush to create rackspace servers.
