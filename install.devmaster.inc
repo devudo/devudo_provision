@@ -24,7 +24,7 @@ function drush_devudo_provision_devmaster_install_validate($site = NULL) {
   drush_set_default('aegir_db_user', 'root');
   drush_set_default('client_name', 'admin');
   $aegir_db_user = drush_get_option('aegir_db_user');
-  drush_set_default('makefile', dirname(__FILE__) . '/aegir.make');
+  drush_set_default('makefile', dirname(__FILE__) . '/build-devmaster.make');
   drush_set_default('profile', 'devmaster');
 
   drush_print("DEVUDO DEVSHOP automated install script");
