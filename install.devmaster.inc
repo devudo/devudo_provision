@@ -12,8 +12,10 @@ function drush_devudo_provision_devmaster_install_validate($site = NULL) {
   // those are settings that are not prompted to the user but still overridable
   drush_set_default('version', provision_version());
   $version = drush_get_option('version');
+  drush_set_default('version', 'devmaster');
+  $profile = drush_get_option('profile');
   $aegir_root = drush_set_default('aegir_root', drush_server_home());
-  drush_set_default('root', $aegir_root . '/' . 'devmaster-' . $version);
+  drush_set_default('root', $aegir_root . '/' . $profile . '-' . $version);
   drush_set_default('r', drush_get_option('root'));
   drush_set_default('script_user', provision_current_user());
   drush_set_default('web_group', _provision_default_web_group());
