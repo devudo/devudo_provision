@@ -11,7 +11,7 @@
 function devudo_provision_drush_command() {
   
   // Ensure provision is installed before using its functions
-  if (function_exists('provision_command')){
+  if (function_exists('provision_drush_command')){
     $items['devmaster-install'] = array(
       'description' => dt('Install and verify the Devmaster frontend.'),
       'bootstrap' => DRUSH_BOOTSTRAP_DRUSH,
