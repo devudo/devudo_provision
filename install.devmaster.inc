@@ -91,6 +91,7 @@ The following settings will be used:
  Aegir makefile: !makefile
  Aegir profile: !profile
  Admin email: !email
+ Working Copy: !working
 ', array('!site' => $site,
          '!fqdn' => drush_get_option('aegir_host'),
          '!home' => drush_get_option('aegir_root'),
@@ -106,6 +107,7 @@ The following settings will be used:
          '!profile' => drush_get_option('profile'),
          '!makefile' => drush_get_option('makefile'),
          '!email' => drush_get_option('client_email'),
+         '!working' => drush_get_option('working-copy'),
          )));
 
   if (!drush_confirm(dt('Do you really want to proceed with the install'))) {
