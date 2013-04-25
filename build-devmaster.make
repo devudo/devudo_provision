@@ -7,7 +7,7 @@ api = 2
 
 projects[drupal][type] = "core"
 
-projects[drupal][type] = "core"
-projects[drupal][version] = "6.x"
-projects[drupal][download][type] = "git"
-projects[drupal][download][url] = "git@github.com:devudo/devmaster_plus.git"
+projects[devmaster][type] = "profile"
+projects[devmaster][download][type] = "git"
+projects[devmaster][download][url] = "git@github.com:devudo/devmaster_plus.git"
+projects[devmaster][download][branch] = "6.x-1.x"
